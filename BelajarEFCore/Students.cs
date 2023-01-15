@@ -23,5 +23,11 @@ namespace BelajarEFCore
 
         [Display(Name = "Student Age")]
         public int StudentAge { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(StudentId)} : {StudentId}, {nameof(StudentName)} : {StudentName}, {nameof(StudentAge)} : {StudentAge}";
+
+        }
     }
 }
