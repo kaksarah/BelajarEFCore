@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BelajarEFCore.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20230112142412_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230115091510_CreateTeacher")]
+    partial class CreateTeacher
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,23 @@ namespace BelajarEFCore.Migrations
                     b.HasKey("StudentId");
 
                     b.ToTable("Students", "dbo");
+                });
+
+            modelBuilder.Entity("BelajarEFCore.Teachers", b =>
+                {
+                    b.Property<int>("TeacherId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeacherId"));
+
+                    b.Property<string>("TeacherName")
+                        .IsRequired()
+                        .HasColumnType("NVarchar(100)");
+
+                    b.HasKey("TeacherId");
+
+                    b.ToTable("Teachers", "dbo");
                 });
 #pragma warning restore 612, 618
         }

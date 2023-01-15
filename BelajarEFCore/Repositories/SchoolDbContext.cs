@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BelajarEFCore.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BelajarEFCore
+namespace BelajarEFCore.Repositories
 {
 
     public class SchoolDbContext : DbContext
@@ -18,6 +19,7 @@ namespace BelajarEFCore
         // modifier public agar bisa di akses dari mana saja dalam aplikasi
         // digunakan untuk membuat table Students dalam database dan melakukan operasi CRUD
         public DbSet<Students> Students { get; set; }
+        public DbSet<Teachers> Teachers { get; set; }
 
         // kode untuk mengkonfigurasi koneksi data SQL Server menggunakan entity framework core
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

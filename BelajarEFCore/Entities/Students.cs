@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BelajarEFCore
+namespace BelajarEFCore.Entities
 {
     [Table(name:"Students", Schema = "dbo")]
     public class Students
